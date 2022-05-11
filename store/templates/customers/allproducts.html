@@ -1,0 +1,81 @@
+{% extends 'customers/samdash.html' %}
+
+
+
+<!-- Specific CSS goes HERE -->
+
+{% block title %} Products {% endblock title %}
+
+{% block content %}
+
+<div class="content">
+
+<h1 align="center"><u>Products List</u></h1>
+
+<!--<div class="container-fluid mt-3">
+    <div class="row">
+        
+    <div id='products' class="col-lg-9 mx-auto">
+        <div class="row mx-auto">
+            
+            
+            
+            <div class="card mx-auto mb-3" style="width: 18rem;">
+                {% for product in product %}
+                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-title">{{product.name}}</p>
+                    <p class="card-text"><b>{{product.price}}</b></p>
+                </div>
+           {% endfor %}
+       </div>
+    </div> 
+</div>
+</div> -->
+
+{% for product in product %}
+<div
+  id="carouselMultiItemExample"
+  class="carousel slide carousel-dark text-center"
+  data-mdb-ride="carousel"
+>
+
+    <center>
+  <!-- Inner -->
+  <div class="carousel-inner py-4">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <div class="container">
+        
+        <div class="col">
+          <div class="col-lg-4">
+            <div class="card">
+              <img
+                src="{{product.image.url}}"
+                class="card-img-top"
+                alt="Waterfall"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">
+                    {{product.description}}<br>
+                    {{product.price}}
+                </p>
+                
+              </div>
+            </div>
+          </div>
+          
+          
+        
+    
+          
+        </div>
+      </div>
+    </div>{% endfor %}</center>
+
+
+</div>
+
+{% endblock content %}
+

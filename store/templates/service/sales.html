@@ -1,0 +1,113 @@
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <title>L-E-COMMERCE | View Data</title>
+        <link rel="icon" href="/static/img/logo1.png" type="image/icon type">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/samdash.css' %}">
+        
+    </head>
+
+    <body>
+
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+        <div class="container-fluid"><a class="navbar-brand text-center" href="#" style="margin: 0px 0px;"><i class="fas fa-shapes fa-1x mt-1 tm-logo"></i> L-E-COMMERCE</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav text-light ml-auto">
+                    <li class="nav-item" role="presentation"><a class="user"><i class="fas fa-user-circle"></i>{{user.username}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <a href="{% url 'homepagess' %}"><i class="fas fa-home"></i>Home</a>
+        <a href="{% url 'upload_img' %}"><i class="fa fa-eye"></i> Upload</a>
+        <a href="{% url 'scan_view' %}"><i class="fa fa-list"></i>  View</a>
+        <a href="{% url 'sales_data' %}"><i class="bi bi-view-list"></i> Sales Data</a>
+        <a href="{% url 'profile_view' %}"><i class="bi bi-person-lines-fill"></i> Profile</a>
+        <!--<a href="#"><i class="fas fa-cloud-showers-heavy"></i>Ordered List</a>
+        <button class="dropdown-btn"><i class="fas fa-seedling"></i>Manage Products<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="#"><i class="fas fa-seedling"></i>View Products</a>
+            <a href="#"><i class="fas fa-seedling"></i>View Soils Details</a>
+            <a href="#"><i class="fas fa-cogs"></i>Verify soils location</a>
+        </div>
+
+        
+        
+        <button class="dropdown-btn"><i class="fas fa-seedling"></i>Manage Sales<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="#"><i class="fas fa-seedling"></i>View Crop</a>
+            <a href="#"><i class="fas fa-cogs"></i>Verify Crop</a>--
+        </div>-->
+
+        <br><br>
+
+        <div class="logout">
+            <a href="{% url 'logout'%}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+    </div>
+
+    <script>
+        //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } 
+                else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    {% block content %}
+    <div class="content">
+        <br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">SL NO.</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in s %}
+                    
+                
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{i.text_as_list.0}}</td>
+                    <td>{{i.text_as_list.1}}</td>
+                    <td>{{i.text_as_list.2}}</td>
+                    
+                    
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table> 
+        
+        
+        
+        
+        
+    </div>
+    {% endblock %}
+
+    </body>
+</html>

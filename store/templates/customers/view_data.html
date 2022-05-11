@@ -1,0 +1,41 @@
+{% extends 'customers/samdash.html' %}
+
+{% block title %} Upload {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+    {% block content %}
+    <div class="content">
+        <br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">SL NO.</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in s %}
+                    
+                
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{i.text_as_list.0}}</td>
+                    <td>{{i.text_as_list.1}}</td>
+                    <td>{{i.text_as_list.2}}</td>
+                    
+                    
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table> 
+        
+        
+        
+        
+        
+    </div>
+    {% endblock content %}
+

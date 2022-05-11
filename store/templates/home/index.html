@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>L-E-COMMERCE</title>
+    <link rel="icon" href="/static/img/logo1.png" type="image/icon type">
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
+    <link href="{% static 'fontawesome/css/all.min.css' %}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <link href="{% static 'css/templatemo-diagoona.css' %}" rel="stylesheet" />
+<!--
+
+-->
+</head>
+
+<body>
+    <div class="tm-container">        
+        <div>
+            <div class="tm-row pt-4">
+                <div class="tm-col-left">
+                    <div class="tm-site-header media">
+                        <i class="fas fa-shapes fa-2x mt-1 tm-logo"></i>
+                        <div class="media-body">
+                            <h3 class="tm-sitename text-uppercase">Local e-Commerce</h3>
+                            <!--<p class="tm-slogon">Local Economic Ecommerce Shop</p>-->
+                        </div>        
+                    </div>
+                </div>
+                <div class="tm-col-right">
+                    <nav class="navbar navbar-expand-lg" id="tm-main-nav">
+                        <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" 
+                            data-toggle="collapse" data-target="#navbar-nav" 
+                            aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span><i class="fas fa-bars"></i></span>
+                        </button>
+                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                            <ul class="navbar-nav text-uppercase">
+                                <li class="nav-item active">
+                                    <a class="nav-link tm-nav-link" href="{% url 'homepagess' %}">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="{% url 'about' %}">About</a>
+                                </li>
+                               <!-- <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="services.html">Owner</a>
+                                </li> 
+                                ############-->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" style="color:white;font-weight:500;" href="#" id="navbardrop" data-toggle="dropdown">
+                                        Owner
+                                    </a>
+                                    <div class="dropdown-menu" style="color:grey;" >
+                                    <a class="dropdown-item" style="font-size:15px;" href="{% url 'shop_signup' %}">Register</a>
+                                    <a class="dropdown-item" style="font-size:15px;" href="{% url 'shop_login' %}">Login</a>
+                                    
+                                </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="{% url 'store' %}">Shop</a>
+                                </li> 
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" style="color:white;font-weight:500;" href="#" id="navbardrop" data-toggle="dropdown">
+                                        Service
+                                    </a>
+                                    <div class="dropdown-menu" style="color:grey;" >
+                                    <a class="dropdown-item" style="font-size:15px;" href="{% url 'service_signup' %}">Register</a>
+                                    <a class="dropdown-item" style="font-size:15px;" href="{% url 'service_login' %}">Login</a>
+                                    
+                                </div>
+                                </li>                           
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>                            
+                        </div>                        
+                    </nav>
+                </div>
+            </div>
+            
+            <div class="tm-row">
+                <div class="tm-col-left"></div>
+                <main class="tm-col-right">
+                    <section class="tm-content">
+                        <h3 class="mb-5 tm-content-title">Local e-Commerce</h3>
+                        <p class="mb-5">Local e-commerce is used for develop the local economic growth by implementing the e-commerce 
+                            system to the local shops. The growth of the local economic depends on the growth of the local areas. 
+                            The local economic growth increasing it also increases the global economy.
+                        </p>
+                        <hr class="mb-5">
+                        <!--<p class="mb-5">Local economic development is not just about development of basic needs of individuals but 
+                            about people working together to achieve sustainable economic growth and improved lives. </p> -->                       
+                        <a href="{% url 'about' %}" class="btn btn-primary">Continue...</a>
+                    </section>
+                </main>
+            </div>
+        </div>        
+
+        <div class="tm-row">
+            <div class="tm-col-left text-center">            
+                <ul class="tm-bg-controls-wrapper">
+                    <li class="tm-bg-control active" data-id="0"></li>
+                    <li class="tm-bg-control" data-id="1"></li>
+                    <li class="tm-bg-control" data-id="2"></li>
+                </ul>            
+            </div>        
+            <div class="tm-col-right tm-col-footer">
+                <footer class="tm-site-footer text-right">
+                    <p class="mb-0">Copyright 2022 Local e-Commerce
+                    
+                    | Design: <a rel="nofollow" target="_parent" href="#" class="tm-text-link">j.j</a></p>
+                </footer>
+            </div>  
+        </div>
+
+        <!-- Diagonal background design -->
+        <div class="tm-bg">
+            <div class="tm-bg-left"></div>
+            <div class="tm-bg-right"></div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+    </script>
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.backstretch.min.js' %}"></script>
+    <script src="{% static 'js/templatemo-script.js' %}"></script>
+</body>
+</html>

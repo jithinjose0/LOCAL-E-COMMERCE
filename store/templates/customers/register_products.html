@@ -1,0 +1,51 @@
+{% extends 'customers/samdash.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Add products {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="content"><h4 align = 'center'>ADD PRODUCT</h4>
+  <div class="content">
+    
+    <br>
+    <form method = "POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-row">
+          <div class="form-group col-md-8 mb-0">
+              {{ forms.name | as_crispy_field }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 mb-0">
+              {{ forms.price | as_crispy_field }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 mb-0">
+              {{ forms.category | as_crispy_field }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 mb-0">
+              {{ forms.description | as_crispy_field }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 mb-0">
+              {{ forms.image | as_crispy_field }}
+          </div>
+        </div>
+       <!-- NAME        : {{ forms.name }}<br><br>
+        PRICE       : {{ forms.price }}<br><br>
+        CATEGORY    : {{ forms.category }}<br><br>
+        DESCRIPTION :{{ forms.description }}<br><br>
+        IMAGE       :{{ forms.image }}<br><br>-->
+        <center>
+        <button type='submit' class="btn btn-primary"> submit </button></center>
+    </form>
+  </div>
+</div>
+{% endblock content %}

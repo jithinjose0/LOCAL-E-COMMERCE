@@ -1,0 +1,157 @@
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <title>L-E-COMMERCE | SHOPADMIN</title>
+        <link rel="icon" href="/static/img/logo1.png" type="image/icon type">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
+
+
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+        <!--{% load static %}-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/samdash.css' %}">
+        
+        
+
+    </head>
+
+    <body>
+
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+        <div class="container-fluid"><a class="navbar-brand text-center" href="#" style="margin: 0px 0px;"><i class="fas fa-shapes fa-1x mt-1 tm-logo"></i> L-E-COMMERCE</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav text-light ml-auto">
+                    <li class="nav-item" role="presentation"><a class="user"><i class="fas fa-user-circle"></i>{{user.username}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- The sidebar -->
+    <div class="sidebar">
+        <a href="{% url 'homepagess' %}"><i class="fas fa-home"></i>Home</a>
+        <a href="{% url 'dashboard' %}"><i class="fa fa-desktop"></i> Dashboard</a>
+        <a href="{% url 'shop_home' %}"><i class="bi bi-person-lines-fill"></i>Profile</a>
+        <a href="{% url 'regproduct' %}"><i class="fa fa-plus-circle"></i> Add Product</a>
+        <a href="{% url 'ordered_list' %}"><i class="bi bi-view-list"></i> Ordered List</a>
+        <button class="dropdown-btn"><i class="fa fa-list"></i> Manage Products<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="{% url 'allproducts' %}"><i class="fa fa-eye"></i> View Products</a>
+            <a href="{% url 'top' %}"><i class="fa fa-caret-up"></i> Top 10 Products</a>
+            <a href="{% url 'pro_list' %}"><i class="bi bi-bar-chart-line"></i> Most Sold Products</a>
+        </div>
+
+        
+        
+        <button class="dropdown-btn"><i class="fa fa-list"></i> Manage Sales<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="{% url 'city' %}"><i class="bi bi-graph-up"></i> Sales Analysis</a>
+            <a href="{% url 'mls' %}"><i class="bi bi-graph-up"></i> Future Prediction</a>
+        </div>
+        <button class="dropdown-btn"><i class="fa fa-list"></i> Service<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="{% url 'uploadd' %}"><i class="fa fa-upload"></i> Upload</a>
+            <a href="{% url 'view_data' %}"><i class="bi bi-view-list"></i> View Data</a>
+        </div>
+
+        <br><br>
+
+        <div class="logout">
+            <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </div>
+    </div>
+
+    <script>
+        //* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } 
+                else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+    {% block content %}
+
+    <!-- Page content 
+    <div class="content">
+        <h1><u><b>Home</b></u></h1>
+        <div class="welcome">
+            <p><b>Agriculture, with its allied sectors, is unquestionably the largest livelihood provider in India, more so in the vast rural areas. It product (GDP). Sustainable agriculture, in terms of food security, rural employment, and environmentally Sustainable technologies such as soil conservation, Sustainable natural resourse management and biodiversity protection, are essential for holistic rural development.</b></p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-header">
+                        <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i><U><b>Approve soil</b></U></h5>
+                        <p class="card-text"><b>Visitors are waiting for approval for there Contribution in Soils...</b></p>
+                        <a href="#" class="btn btn-outline-dark"><b>Go There</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header">
+                        <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i><U><b>Approval Crop</b></U></h5>
+                        <p class="card-text"><b>Visitors are waiting for approval for there Contribution in Crops...</b></p>
+                        <a href="#" class="btn btn-outline-dark"><b>Go There</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header">
+                        <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i><U><b>Approve Request for Seed</b></U></h5>
+                        <p class="card-text"><b>Visitors are waiting for approval for there Request for seed...</b></p>
+                        <a href="#" class="btn btn-outline-dark"><b>Go There</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">
+                        <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-seedling"></i><U><b>Approve Request for Fertilizer</b></U></h5>
+                        <p class="card-text"><b>Visitors are waiting for approval for there Request for Fertilizer...</b></p>
+                        <a href="#" class="btn btn-outline-dark"><b>Go There</b></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>-->
+
+    {% endblock %}
+
+    </body>
+</html>

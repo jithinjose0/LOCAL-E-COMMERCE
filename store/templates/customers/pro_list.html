@@ -1,0 +1,14 @@
+{% extends "customers/samdash.html" %}
+{% block content %}
+{% load static %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'officer/officer_active_crop.css' %}">-->
+ 
+    <!-- Page content -->
+    <div class="content">
+        <h4>Most Sold Products</h4>
+        <img src = "data:image/png;base64,{{ data }}" alt="" height="500" width="800"><br>
+        <h4>Why do you think it sold the most?</h4><br>
+        <img src = "data:image/png;base64,{{ data1 }}" alt="" height="500" width="800"><br>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'customers/samdash.html' %}
+
+{% block title %} Add products {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="content">
+
+<style>
+    .hero__item {
+        height: 400px;
+        display: flex;
+        align-items: center;
+        padding-left: 75px;
+    }
+    .hero__text span {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 4px;
+        color: #f5faef;
+        font-family: "Cairo", sans-serif;
+    }
+    .hero__text h2 {
+        font-size: 46px;
+        color: #000000;
+        line-height: 52px;
+        font-weight: 700;
+        margin: 10px 0;
+        font-family: "Cairo", sans-serif;
+    }
+    .hero__text p {
+        margin-bottom: 35px;
+        color: black;
+        font-family: "Cairo", sans-serif;
+    }  
+    a.btn-outline-primary{
+        font-family: "Poppins", sans-serif;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 8px 28px;
+        border-radius: 50px;
+        transition: 0.5s;
+        margin: 10px;
+        border: 2px solid green;
+        color: green;
+    }
+
+    a.btn-outline-primary:hover{
+        background: green;
+        border: 2px solid green;
+    }
+</style>
+
+<div class="hero__item set-bg" style="background-image: url('../static/img/ecommerce.jpg'); width: 100%; background-size: cover;">
+    <div class="hero__text">
+        <span><h4>LOCAL E-COMMERCE</h4></span>
+        
+        <p>You are a good friend and we welcome you.</p>
+        
+    </div>
+</div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">
+                    <div class="card-body">
+                    <h5 class="card-title"><U><b>Total Traffic </b></U></h5>
+                    <p class="card-text"><b>{{p}}</b></p>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-white bg-warning mb-3">
+                <div class="card-header">
+                    <div class="card-body">
+                    <h5 class="card-title"><U><b>Total sales</b></U></h5>
+                    <p class="card-text"><b>{{all}}</b></p>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <div class="col-sm-4">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">
+                <div class="card-body">
+                <h5 class="card-title"><U><b>Revenue</b></U></h5>
+                <p class="card-text">
+                    1890132.04</b></p>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="col-sm-3">
+        <div class="card text-white bg-secondary mb-3">
+            <div class="card-header">
+                <div class="card-body">
+                <h5 class="card-title"><U><b>Income</b></U></h5>
+                <p class="card-text"><b>+34%</b></p>
+                
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+    <br><br>
+<h4>Overall Sales by Year</h4>
+    <center> <img src = "data:image/png;base64,{{ data1 }}" alt="" height="400" width="800"><br><br>
+        <h4 align='Left'>Last Year</h4>
+        <img src = "data:image/png;base64,{{ data2 }}" alt="" height="400" width="800">
+    </center>
+
+</div>
+
+{% endblock content %}
+

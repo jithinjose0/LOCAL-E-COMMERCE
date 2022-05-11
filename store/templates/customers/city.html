@@ -1,0 +1,15 @@
+{% extends "customers/samdash.html" %}
+{% block content %}
+{% load static %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'officer/officer_active_crop.css' %}">-->
+ 
+    <!-- Page content -->
+    <div class="content">
+
+        <h4> What city sold the most product?</h4><br>
+    <img src = "data:image/png;base64,{{ data }}" alt="" height="500" width="800"><br>
+    <h4>Total sales</h4><br>
+    <img src = "data:image/png;base64,{{ data1 }}" alt="" height="500" width="800">
+    </div>
+
+{% endblock %}
